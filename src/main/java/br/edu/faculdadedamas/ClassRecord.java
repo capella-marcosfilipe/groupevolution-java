@@ -17,6 +17,14 @@ public class ClassRecord {
         this.canceled = canceled;
     }
 
+    public ClassRecord() {
+        this.id = 0;
+        this.classDate = null;
+        this.doneInClass = "";
+        this.nextClass = "";
+        this.canceled = false;
+    }
+
     public int getId() {
         return id;
     }
@@ -59,7 +67,7 @@ public class ClassRecord {
 
     @Override
     public String toString() {
-        return "Data: " + classDate + "\tAluno = " + "\nFeito = " + doneInClass
+        return "Id: " + id + "\tData: " + classDate + "\nFeito = " + doneInClass
                 + "\nPróxima aula = " + nextClass + "\nCancelada? = " + (canceled ? "sim" : "não") + "\n";
     }
 

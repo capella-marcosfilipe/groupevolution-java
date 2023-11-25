@@ -1,12 +1,13 @@
 package br.edu.faculdadedamas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Stack;
 
 public class Classroom {
     private int id;
     // (1,n) alunos matriculados
-    private ArrayList<Student> studentsEnrolled;
+    private ArrayList<Student> studentsEnrolled = new ArrayList<Student>();
     // (0,n) registros de aula
     private Stack<ClassRecord> classRecords = new Stack<ClassRecord>();
 
@@ -16,11 +17,30 @@ public class Classroom {
             this.studentsEnrolled.add(student);
         }
     }
-    
-    public void enrollStudents(ArrayList<Student> newStudents) {
+
+    public Classroom() {
+        super();
+    }
+
+    public void enrollMultipleStudents(ArrayList<Student> newStudents) {
         for (Student student : newStudents) {
             this.studentsEnrolled.add(student);
         }
+    }
+
+    public void enrollSingleStudent(Student newStudent) {
+        this.studentsEnrolled.add(newStudent);
+    }
+
+    public ClassRecord getRecordByDate(LocalDate searchingDate) {
+        ClassRecord searchingRecord = new ClassRecord();
+        for (int i = 0; i < this.classRecords.size(); i++) {
+            if (this.classRecords.get(i).getClassDate().equals(searchingDate)) {
+                searchingRecord = this.classRecords.get(i);
+                break;
+            }
+        }
+        return searchingRecord;
     }
 
     public int getId() {

@@ -1,16 +1,16 @@
 package br.edu.faculdadedamas;
 
 public class Student {
-    public int id;
-    public String name;
-    public String registrationNumber;
+    private int id;
+    private String name;
+    private String registrationNumber;
 
     public Student(int id, String name, String registrationNumber) {
         this.id = id;
         this.name = name;
         this.registrationNumber = registrationNumber;
     }
-
+   
     public int getId() {
         return id;
     }
